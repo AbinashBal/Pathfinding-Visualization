@@ -161,13 +161,13 @@ class GridPanel extends JPanel implements MouseListener, MouseMotionListener {
         while (!pq.isEmpty()) {
             Node current = pq.poll();
 
-            // 1️⃣ As soon as we hit the end, draw path and EXIT
+            // As soon as we hit the end, draw path and EXIT
             if (current == endNode) {
                 reconstructPath(endNode);
                 return;          // <— this returns from run(), killing the thread
             }
 
-            // 2️⃣ Otherwise mark visited and continue
+            // Otherwise mark visited and continue
             if (current != startNode) {
                 current.setType(NodeType.VISITED);
                 repaint();      // only repaint when state actually changes
@@ -212,13 +212,13 @@ class GridPanel extends JPanel implements MouseListener, MouseMotionListener {
         while (!open.isEmpty()) {
             Node current = open.poll();
 
-            // 1️⃣ Stop immediately when we reach the end
+            // Stop immediately when we reach the end
             if (current == endNode) {
                 reconstructPath(endNode);
                 return;
             }
 
-            // 2️⃣ Otherwise mark visited
+            // Otherwise mark visited
             if (current != startNode) {
                 current.setType(NodeType.VISITED);
                 repaint();
